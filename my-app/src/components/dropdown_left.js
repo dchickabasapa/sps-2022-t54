@@ -1,12 +1,10 @@
 import React,{useState} from 'react';
-
 import DropdownButton from 'react-bootstrap/DropdownButton';
 import Dropdown from 'react-bootstrap/Dropdown';
 import ListGroup from 'react-bootstrap/ListGroup';
-
 import * as Constants from '../constants';
 
-function DropdownMenu() {
+function DropdownMenu_Left() {
     const [value,setValue]=useState('');
     const [notes,setNotes]=useState([]);
     const handleSelect=(e)=>{
@@ -14,7 +12,6 @@ function DropdownMenu() {
         setValue(e);
 
         for (var i = 0; i < Constants.traditions.length; i++) {
-            console.log()
             if (Constants.traditions[i].id === e)
                 setNotes(Constants.traditions[i].notes)
         }
@@ -40,4 +37,4 @@ function DropdownMenu() {
   );
 }
 
-export default DropdownMenu;
+export default DropdownMenu_Left;
