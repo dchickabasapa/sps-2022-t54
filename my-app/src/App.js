@@ -1,6 +1,7 @@
 import './App.css';
 import { Col, Container, Row } from 'react-bootstrap';
 import DropdownMenu from './components/dropdown';
+import Music from './components/audio'
 
 function App() {
   return (
@@ -11,6 +12,7 @@ function App() {
             <Col><DropdownMenu></DropdownMenu></Col>
             <Col><DropdownMenu></DropdownMenu></Col>
           </Row>
+          <Music></Music>
         </Container>
       </header>
     </div>

@@ -32,7 +32,9 @@ function DropdownMenu() {
         <ListGroup>
             {notes.map((key) => {
                 return (
-                    <ListGroup.Item key={key} eventKey={key}>{key}</ListGroup.Item>
+                    <div>
+                        <ListGroup.Item key={key} eventKey={key}>{key}</ListGroup.Item>
+                    </div>
                 )
             })}
         </ListGroup>
