@@ -8,7 +8,7 @@ class Music extends Component {
   state = {
 
     // Get audio file in a variable
-    audio: new Audio(song),
+    audio: new Audio("../audio/c.mp3"),
 
     // Set initial state of song
     isPlaying: false,
