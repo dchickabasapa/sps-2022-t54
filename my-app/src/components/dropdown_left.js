@@ -4,7 +4,7 @@ import Dropdown from 'react-bootstrap/Dropdown';
 import ListGroup from 'react-bootstrap/ListGroup';
 import * as Constants from '../constants';
 
-function DropdownMenu_Left() {
+function DropdownMenu_Left(props) {
     const [value,setValue]=useState('');
     const [notes,setNotes]=useState([]);
     const handleSelect=(e)=>{
@@ -27,9 +27,9 @@ function DropdownMenu_Left() {
             })}
         </DropdownButton>
         <ListGroup>
-            {notes.map((key) => {
+            {notes.map((key, index) => {
                 return (
-                    <ListGroup.Item key={key} eventKey={key}>{key}</ListGroup.Item>
+                    <ListGroup.Item action onClick={() => props.setIndex(index)} key={key} eventKey={key}>{key}</ListGroup.Item>
                 )
             })}
         </ListGroup>
