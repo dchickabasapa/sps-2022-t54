@@ -1,29 +1,24 @@
 import './App.css';
 import { Col, Container, Row } from 'react-bootstrap';
-import DropdownMenu from './components/dropdown';
-import Player from './components/audio_trial'
-import ReactAudioPlayer from 'react-audio-player';
+import { useState, useEffect } from 'react';
+import DropdownMenu_Left from './components/dropdown_left';
+import DropdownMenu_Right from './components/dropdown_right';
 
 function App() {
+  const [index, setIndex]=useState('');
   return (
     <div className="App">
       <header className="App-header">
         <Container>
           <Row>
-            <Col><DropdownMenu></DropdownMenu></Col>
-            <Col><DropdownMenu></DropdownMenu></Col>
+            <Col><DropdownMenu_Left setIndex={setIndex}></DropdownMenu_Left></Col>
+            <Col><DropdownMenu_Right index={index}></DropdownMenu_Right></Col>
           </Row>
-          {/* <Music audioFile="../audio/c.mp3"></Music> */}
-          <Player url="/audio/c.mp3"></Player>
-          <ReactAudioPlayer
-  src="c.ogg"
-  autoPlay
-  controls
-/>
         </Container>
       </header>
     </div>
   );
 }
+
 
 export default App;
