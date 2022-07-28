@@ -1,12 +1,12 @@
 import React from 'react';
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import DropdownButton from 'react-bootstrap/DropdownButton';
 import Dropdown from 'react-bootstrap/Dropdown';
 import ListGroup from 'react-bootstrap/ListGroup';
 import * as Constants from '../constants';
 
 function DropdownMenu_Right(props) {
-    const [value,setValue]=useState('');
+    const [value,setValue]=useState('Select tradition');
     const [notes,setNotes]=useState([]);
     const handleSelect=(e)=>{
         console.log(e);
@@ -17,19 +17,27 @@ function DropdownMenu_Right(props) {
                 setNotes(Constants.traditions[i].notes)
         }
     }
+    console.log(props.value)
   return (
       <div>
         <DropdownButton id="dropdown-basic-button"
-        title="Dropdown button" onSelect={handleSelect}>
+        title={value} onSelect={handleSelect}>
             {Constants.traditions.map((key) => {
-                return (
-                    <Dropdown.Item key={key.id} eventKey={key.id}>{key.id}</Dropdown.Item>
-                )
+                if (key.id === props.leftSelection) {
+                    return (
+                        <Dropdown.Item disabled key={key.id} eventKey={key.id}>{key.id}</Dropdown.Item>
+                    )
+                }
+                else {
+                    return (
+                        <Dropdown.Item key={key.id} eventKey={key.id}>{key.id}</Dropdown.Item>
+                    )
+                }
             })}
         </DropdownButton>
         <ListGroup>
             {notes.map((key, index) => {
-                if (props.index == index) {
+                if (props.index === index) {
                     return (
                         <ListGroup.Item active key={key}>{key}</ListGroup.Item>
                     )

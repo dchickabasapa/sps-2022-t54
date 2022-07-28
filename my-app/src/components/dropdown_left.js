@@ -7,12 +7,12 @@ import * as Constants from '../constants';
 import ReactAudioPlayer from 'react-audio-player';
 
 function DropdownMenu_Left(props) {
-    const [value,setValue]=useState('');
+    const [value,setValue]=useState('Select tradition');
     const [notes,setNotes]=useState([]);
     const handleSelect=(e)=>{
         console.log(e);
         setValue(e);
-
+        props.setLeftSelection(e);
         for (var i = 0; i < Constants.traditions.length; i++) {
             if (Constants.traditions[i].id === e)
                 setNotes(Constants.traditions[i].notes)
@@ -21,7 +21,7 @@ function DropdownMenu_Left(props) {
   return (
       <div>
         <DropdownButton id="dropdown-basic-button"
-        title="Dropdown button" onSelect={handleSelect}>
+        title={value} onSelect={handleSelect}>
             {Constants.traditions.map((key) => {
                 return (
                     <Dropdown.Item key={key.id} eventKey={key.id}>{key.id}</Dropdown.Item>

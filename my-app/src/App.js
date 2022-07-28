@@ -1,18 +1,20 @@
 import './App.css';
 import { Col, Container, Row } from 'react-bootstrap';
-import { useState, useEffect } from 'react';
-import DropdownMenu_Left from './components/dropdown_left';
-import DropdownMenu_Right from './components/dropdown_right';
+import { useState } from 'react';
+import DropdownMenuLeft from './components/dropdown_left';
+import DropdownMenuRight from './components/dropdown_right';
 
 function App() {
   const [index, setIndex]=useState('');
+  const [leftSelection, setLeftSelection]=useState('');
+  console.log(leftSelection)
   return (
     <div className="App">
       <header className="App-header">
         <Container>
           <Row>
-            <Col><DropdownMenu_Left setIndex={setIndex}></DropdownMenu_Left></Col>
-            <Col><DropdownMenu_Right index={index}></DropdownMenu_Right></Col>
+            <Col><DropdownMenuLeft setIndex={setIndex} setLeftSelection={setLeftSelection}></DropdownMenuLeft></Col>
+            <Col><DropdownMenuRight index={index} leftSelection={leftSelection}></DropdownMenuRight></Col>
           </Row>
         </Container>
       </header>
