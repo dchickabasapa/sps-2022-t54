@@ -8,15 +8,17 @@ import DropdownMenu_Mid from './components/dropdown_mid';
 function App() {
   const [index, setIndex]=useState(-1);
   const [plus, setPlus] = useState(0);
-  console.log(plus)
+  const [leftSelection, setLeftSelection]=useState('');
+ 
+
   return (
     <div className="App">
       <header className="App-header">
         <Container>
           <Row>
-            <Col><DropdownMenu_Left setIndex={setIndex}></DropdownMenu_Left></Col>
+            <Col><DropdownMenu_Left setIndex={setIndex} setLeftSelection={setLeftSelection}></DropdownMenu_Left></Col>
             <Col><DropdownMenu_Mid setPlus={setPlus}></DropdownMenu_Mid></Col>
-            <Col><DropdownMenu_Right index={index + plus}></DropdownMenu_Right></Col>
+            <Col><DropdownMenu_Right index={index + plus} leftSelection={leftSelection}></DropdownMenu_Right></Col>
           </Row>
         </Container>
       </header>
