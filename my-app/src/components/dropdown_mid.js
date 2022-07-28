@@ -1,33 +1,13 @@
 import React from 'react';
-import { useState, useEffect } from 'react';
-import DropdownButton from 'react-bootstrap/DropdownButton';
-import Dropdown from 'react-bootstrap/Dropdown';
 import ListGroup from 'react-bootstrap/ListGroup';
-import * as Offset from './offset';
-import { Button, ListGroupItem } from 'react-bootstrap';
+import { ListGroupItem } from 'react-bootstrap';
 
-function DropdownMenu_Mid(props) {
-    const [value, setValue] = useState('');
-    const [num, setNum] = useState([]);
-    const handleClick = (e) => {
-        console.log(e);
-        setValue(e);
-
-        for (var i = 0; i < Offset.numSet.length; i++) {
-            if (Offset.numSet[i].id === e)
-                setNum(Offset.numSet[i].number)
-        }
-    }
+function DropdownMenuMid(props) {
+    const num = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11'];
     return (
         <div>
-            <DropdownButton id="off-set-button"
-                title="Offset" onSelect={handleClick}>
-                {Offset.numSet.map((key) => {
-                    return (
-                        <Dropdown.Item key={key.id} eventKey={key.id}>{key.id}</Dropdown.Item>
-                    )
-                })}
-            </DropdownButton>
+            <h2>Select Offset</h2>
+            <br/>
             <ListGroup>
                 {num.map((key, plus) => {
                     return (
@@ -39,4 +19,4 @@ function DropdownMenu_Mid(props) {
     )
 }
 
-export default DropdownMenu_Mid;
+export default DropdownMenuMid;

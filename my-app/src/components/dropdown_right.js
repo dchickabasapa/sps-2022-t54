@@ -5,7 +5,7 @@ import Dropdown from 'react-bootstrap/Dropdown';
 import ListGroup from 'react-bootstrap/ListGroup';
 import * as Constants from '../constants';
 
-function DropdownMenu_Right(props) {
+function DropdownMenuRight(props) {
     const [value,setValue]=useState('Select tradition');
     const [notes,setNotes]=useState([]);
     const handleSelect=(e)=>{
@@ -35,6 +35,7 @@ function DropdownMenu_Right(props) {
                 }
             })}
         </DropdownButton>
+        <br/>
         <ListGroup>
             {notes.map((key, index) => {
                 if (props.index === index) {
@@ -52,4 +53,4 @@ function DropdownMenu_Right(props) {
   );
 }
 
-export default DropdownMenu_Right;
+export default DropdownMenuRight;

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React,{useState} from 'react';
 import DropdownButton from 'react-bootstrap/DropdownButton';
 import Dropdown from 'react-bootstrap/Dropdown';
 import ListGroup from 'react-bootstrap/ListGroup';
@@ -6,9 +6,10 @@ import * as Constants from '../constants';
 
 import ReactAudioPlayer from 'react-audio-player';
 
-function DropdownMenu_Left(props) {
+function DropdownMenuLeft(props) {
     const [value,setValue]=useState('Select tradition');
     const [notes,setNotes]=useState([]);
+    const [note,setNote]=useState("");
     const handleSelect=(e)=>{
         console.log(e);
         setValue(e);
@@ -18,6 +19,7 @@ function DropdownMenu_Left(props) {
                 setNotes(Constants.traditions[i].notes)
         }
     }
+    console.log("/audio/"+note+".mp3");
   return (
       <div>
         <DropdownButton id="dropdown-basic-button"
@@ -28,18 +30,20 @@ function DropdownMenu_Left(props) {
                 )
             })}
         </DropdownButton>
+        <br/>
         <ListGroup>
             {notes.map((key, index) => {
                 return (
                     <div key={key}>
-                        <ListGroup.Item action onClick={() => props.setIndex(index)} key={key} eventKey={key}>{key}</ListGroup.Item>
-                        <ReactAudioPlayer src={"/audio/"+key+".mp3"} controls></ReactAudioPlayer>
+                        <ListGroup.Item action onClick={() => {props.setIndex(index); setNote(key)}} key={key} eventKey={key}>{key}</ListGroup.Item>
                     </div>
                 )
             })}
         </ListGroup>
+        <br/>
+        <ReactAudioPlayer src={"/audio/"+note+".mp3"} controls></ReactAudioPlayer>
       </div>
   );
 }
 
-export default DropdownMenu_Left;
+export default DropdownMenuLeft;
